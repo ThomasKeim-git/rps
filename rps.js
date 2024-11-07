@@ -44,3 +44,47 @@ let computerScore = 0
   alert ('You both chose rock! Tie!')
   };
 }*/
+
+function getComputerChoice() {
+  const choices = ["rock", "paper", "scissors"];
+  return choices[Math.floor(Math.random() * 3)];
+}
+
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
+    return "It's a tie!";
+  } else if (
+    (playerSelection === "rock" && computerSelection === "scissors") ||
+    (playerSelection === "paper" && computerSelection === "rock") ||
+    (playerSelection === "scissors" && computerSelection === "paper")
+  ) {
+    return "You Win!";
+  } else {
+    return "You Lose!";
+  }
+}
+
+function game() {
+  let playerScore = 0;
+  let computerScore = 0;
+
+  for (let i = 0; i < 5; i++) {
+    const playerSelection = prompt("Choose rock, paper, or scissors:").toLowerCase();
+    const computerSelection = getComputerChoice();
+
+    const result = playRound(playerSelection, computerSelection);
+    console.log(result);
+
+    if (result === "You Win!") {
+      playerScore++;
+    } else if (result === "You Lose!") {
+      computerScore++;
+    }
+  }
+
+  console.log("Final Score:");
+  console.log("You:", playerScore);
+  console.log("Computer:", computerScore);
+}
+
+playGame();
