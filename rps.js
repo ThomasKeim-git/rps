@@ -45,6 +45,8 @@ let computerScore = 0
   };
 }*/
 
+playGame();
+
 function getComputerChoice() {
   const choices = ["rock", "paper", "scissors"];
   return choices[Math.floor(Math.random() * 3)];
@@ -86,5 +88,3 @@ function game() {
   console.log("You:", playerScore);
   console.log("Computer:", computerScore);
 }
-
-playGame();
